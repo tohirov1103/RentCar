@@ -3,6 +3,7 @@ const {Client} = require('../models/models');
 
 const loginUser = async(req,res)=>{
     let user = await Client.findOne({email:req.body.email});
+    let userId = user.id;
     if(user){
         const passCompare = req.body.password === user.password;
         if(passCompare){
@@ -12,7 +13,7 @@ const loginUser = async(req,res)=>{
                 }
             }
             const token = jwt.sign(data,'secret_pass');
-            res.json({success:true,token})
+            res.json({success:true,token,userId})
         }else{
             res.json({success:false,error:"Wrong password"})
         }
@@ -40,10 +41,12 @@ const signupUser = async(req,res)=>{
             id:user.id,
         }
     }
+    const userId = user.id;
     const token = jwt.sign(data,'secret_pass');
     res.json({
         success:true,
-        token
+        token,
+        userId
     })
 }
 

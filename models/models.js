@@ -76,22 +76,22 @@ user:{
     type:mongoose.Schema.Types.ObjectId,
     ref:'Client'
 },
-dateOfRent:{
-    type:String,
-    required:true,
-},
-timeOfRent:{
-    type:String,
-    required:true
-},
-dateOfReturn:{
-    type:String,
-    required:true,
-},
-timeOfReturn:{
-    type:String,
-    required:true,
-}
+// dateOfRent:{
+//     type:String,
+//     required:true,
+// },
+// timeOfRent:{
+//     type:String,
+//     required:true
+// },
+// dateOfReturn:{
+//     type:String,
+//     required:true,
+// },
+// timeOfReturn:{
+//     type:String,
+//     required:true,
+// }
 })
 
 module.exports = {CarRent,Client,Rent};

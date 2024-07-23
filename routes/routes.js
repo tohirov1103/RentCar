@@ -10,7 +10,10 @@ const {
   rentCar,
   getRentedCars,
   getSingleCar,
-  getAvailableCars
+  getAvailableCars,
+  getAllUsers,
+  deleteUser,
+  getRentalById
 } = require('../controllers/operations');
 
 const {signupUser,loginUser} = require('../controllers/login');
@@ -26,13 +29,19 @@ router.get('/cars/notrented',getAvailableCars);
 // Get popular cars route
 router.get('/cars/popular', getPopularCars);
 // Get user info route
-router.post('/users/info', getUserInfo);
+router.get('/users/info', getUserInfo);
 // Rent car route
 router.post('/cars/rent/:id', rentCar);
 // Get rented cars route
 router.get('/cars/rented', getRentedCars);
 // Get single car route
 router.get('/cars/:id',getSingleCar)
+// Get all users route
+router.get('/user',getAllUsers);
+// Delete user route
+router.delete('/user/:id',deleteUser);
+// Get RentById route
+router.get('/rentals/:id',getRentalById);
 
 router.post('/signup',signupUser);
 router.post('/login',loginUser);
